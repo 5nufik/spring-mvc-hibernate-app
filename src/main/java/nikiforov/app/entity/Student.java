@@ -3,10 +3,6 @@ package nikiforov.app.entity;
 import javax.persistence.*;
 import java.sql.Date;
 
-/**
- * todo Document type Employee
- */
-
 @Entity
 @Table(
     name = "students"
@@ -18,16 +14,12 @@ public class Student {
     )
     private int studentID;
 
-    @Column
     private String studentName;
 
-    @Column
     private String studentSurname;
 
-    @Column
     private String studentPatronymic;
 
-    @Column
     private Date studentDateOfBirth;
 
     @ManyToOne(

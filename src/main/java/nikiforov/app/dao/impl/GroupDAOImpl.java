@@ -9,10 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * todo Document type GroupDAOImpl
- */
-
 @Repository
 public class GroupDAOImpl implements GroupDAO {
 
@@ -33,5 +29,12 @@ public class GroupDAOImpl implements GroupDAO {
         Session session = sessionFactory.getCurrentSession();
 
         session.save(group);
+    }
+
+    @Override
+    public Group getGroupByName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.get(Group.class, name);
     }
 }

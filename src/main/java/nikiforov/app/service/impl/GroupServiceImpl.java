@@ -7,13 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-/**
- * todo Document type GroupServiceImpl
- */
 
 @Service
 public class GroupServiceImpl implements GroupService {
@@ -31,5 +25,11 @@ public class GroupServiceImpl implements GroupService {
     @Transactional
     public void saveGroup(Group group) {
         groupDAO.saveGroup(group);
+    }
+
+    @Override
+    @Transactional
+    public Group getGroupByName(String name) {
+        return groupDAO.getGroupByName(name);
     }
 }

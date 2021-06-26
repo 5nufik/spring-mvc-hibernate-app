@@ -1,23 +1,26 @@
 package nikiforov.app.entity;
 
-import javax.persistence.*;
+import nikiforov.app.validation.CheckGroup;
 
-/**
- * todo Document type Group
- */
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(
     name = "grups"
 )
 public class Group {
-
     @Id
-    @GeneratedValue(
-        strategy = GenerationType.IDENTITY
+    @NotBlank (
+        message = "Название не должно быть пустым"
     )
-    private int groupID;
-
+    @Size(
+        min = 3,
+        max = 30,
+        message = "Название может содержать от 3 до 30 символов"
+    )
+    @CheckGroup
     private String groupName;
 
     public Group() {
@@ -25,14 +28,6 @@ public class Group {
 
     public Group(String groupName) {
         this.groupName = groupName;
-    }
-
-    public int getGroupID() {
-        return groupID;
-    }
-
-    public void setGroupID(int groupID) {
-        this.groupID = groupID;
     }
 
     public String getGroupName() {
@@ -46,7 +41,6 @@ public class Group {
     @Override
     public String toString() {
         return "Group{" +
-            "groupID=" + groupID +
             ", groupName='" + groupName + '\'' +
             '}';
     }
