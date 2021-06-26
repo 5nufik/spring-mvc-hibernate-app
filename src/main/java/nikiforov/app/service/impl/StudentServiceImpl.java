@@ -9,10 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * todo Document type StudentServiceImpl
- */
-
 @Service
 public class StudentServiceImpl implements StudentService {
 
@@ -23,5 +19,11 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     public List<Student> getAllStudents() {
         return studentDAO.getAllStudents();
+    }
+
+    @Override
+    @Transactional
+    public void saveStudent(Student student) {
+        studentDAO.saveStudent(student);
     }
 }

@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .navigation ul {
     display: flex;
     justify-content: left;
@@ -19,4 +25,8 @@
 
 .navigation a:hover {
     border-bottom: 2px solid #232323;
+}
+
+input, select {
+    width: 100%;
 }

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -20,6 +21,9 @@
                     <td><form:errors path="groupName"/></td>
                 </tr>
             </table>
+
+            <br>
+
             <input type="submit" value="Создать">
         </form:form>
     </body>

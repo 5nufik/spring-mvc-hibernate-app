@@ -9,10 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * todo Document type StudentDAOImpl
- */
-
 @Repository
 public class StudentDAOImpl implements StudentDAO {
 
@@ -26,5 +22,12 @@ public class StudentDAOImpl implements StudentDAO {
         List<Student> studentList = session.createQuery("from Student",Student.class).getResultList();
 
         return studentList;
+    }
+
+    @Override
+    public void saveStudent(Student student) {
+        Session session = sessionFactory.getCurrentSession();
+
+        session.save(student);
     }
 }
