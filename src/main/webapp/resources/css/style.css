@@ -1,0 +1,22 @@
+.navigation ul {
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    padding: 0;
+}
+
+.navigation a {
+    font-size: 1.2em;
+    color: #232323;
+    text-decoration: none;
+
+    transition: 10ms;
+}
+
+.navigation li:not(:first-child) {
+    margin-left: 1.2em;
+}
+
+.navigation a:hover {
+    border-bottom: 2px solid #232323;
+}
