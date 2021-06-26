@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface GroupDAO {
     List<Group> getAllGroups();
+
+    void saveGroup(Group group);
 }

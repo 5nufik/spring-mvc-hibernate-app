@@ -27,4 +27,11 @@ public class GroupDAOImpl implements GroupDAO {
 
         return groupList;
     }
+
+    @Override
+    public void saveGroup(Group group) {
+        Session session = sessionFactory.getCurrentSession();
+
+        session.save(group);
+    }
 }

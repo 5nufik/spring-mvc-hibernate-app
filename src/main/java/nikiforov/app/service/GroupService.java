@@ -11,4 +11,6 @@ import java.util.Map;
 
 public interface GroupService {
     List<Group> getAllGroups();
+
+    void saveGroup(Group group);
 }

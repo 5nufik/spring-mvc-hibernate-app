@@ -26,4 +26,10 @@ public class GroupServiceImpl implements GroupService {
     public List<Group> getAllGroups() {
         return groupDAO.getAllGroups();
     }
+
+    @Override
+    @Transactional
+    public void saveGroup(Group group) {
+        groupDAO.saveGroup(group);
+    }
 }
