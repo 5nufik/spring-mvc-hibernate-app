@@ -9,7 +9,7 @@
 
 <nav class="navigation">
     <ul>
-        <li><a href="">Студенты</a></li>
+        <li><a href="/students">Студенты</a></li>
         <li><a href="">Группы</a></li>
     </ul>
 </nav>
