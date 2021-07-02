@@ -1,26 +1,19 @@
 package nikiforov.app.entity;
 
-import nikiforov.app.validation.CheckGroup;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(
     name = "grups"
 )
 public class Group {
+
     @Id
-    @NotBlank (
-        message = "Название не должно быть пустым"
+    @Pattern(
+        regexp = "^\\S{3,30}$",
+        message = "Название может содержать от 3 до 30 символов без пробелов"
     )
-    @Size(
-        min = 3,
-        max = 30,
-        message = "Название может содержать от 3 до 30 символов"
-    )
-    @CheckGroup
     private String groupName;
 
     public Group() {

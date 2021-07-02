@@ -37,14 +37,15 @@ public class GroupController {
     }
 
     @RequestMapping("/save")
-    public String saveGroup(@Valid @ModelAttribute("group") Group group, BindingResult bindingResult) {
+    public String saveGroup(@ModelAttribute("group") @Valid Group group, BindingResult result) {
 
-        if (!bindingResult.hasErrors()) {
-            groupService.saveGroup(group);
-
-            return "redirect:/groups";
-        } else {
-            return "new-group";
+        if (!result.hasErrors()) {
+            if (groupService.getGroup(group.getGroupName()) == null) {
+                groupService.saveGroup(group);
+                return "redirect:/groups";
+            }
+            result.rejectValue("groupName", "error.groupName", "Введённая группа уже существует");
         }
+        return "new-group";
     }
 }

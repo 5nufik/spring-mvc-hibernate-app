@@ -32,7 +32,7 @@ public class GroupDAOImpl implements GroupDAO {
     }
 
     @Override
-    public Group getGroupByName(String name) {
+    public Group getGroup(String name) {
         Session session = sessionFactory.getCurrentSession();
 
         return session.get(Group.class, name);
