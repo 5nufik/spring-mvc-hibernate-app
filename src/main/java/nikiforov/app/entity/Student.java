@@ -20,6 +20,8 @@ public class Student {
 
     private String studentPatronymic;
 
+    private String studentEmail;
+
     private Date studentDateOfBirth;
 
     @ManyToOne(
@@ -33,7 +35,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(String studentName, String studentSurname, String studentPatronymic, Date studentDateOfBirth, Group studentGroup) {
+    public Student(String studentName, String studentSurname, String studentPatronymic, String studentEmail, Date studentDateOfBirth, Group studentGroup) {
         this.studentName = studentName;
         this.studentSurname = studentSurname;
         this.studentPatronymic = studentPatronymic;
@@ -73,6 +75,14 @@ public class Student {
         this.studentPatronymic = studentPatronymic;
     }
 
+    public String getStudentEmail() {
+        return studentEmail;
+    }
+
+    public void setStudentEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
+    }
+
     public Date getStudentDateOfBirth() {
         return studentDateOfBirth;
     }
@@ -96,6 +106,7 @@ public class Student {
             ", studentName='" + studentName + '\'' +
             ", studentSurname='" + studentSurname + '\'' +
             ", studentPatronymic='" + studentPatronymic + '\'' +
+            ", studentEmail='" + studentEmail + '\'' +
             ", studentDateOfBirth=" + studentDateOfBirth +
             ", studentGroup=" + studentGroup +
             '}';

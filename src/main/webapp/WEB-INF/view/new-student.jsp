@@ -19,24 +19,28 @@
             <table>
                 <tr>
                     <td>Имя</td>
-                    <td><form:input path="studentName"/></td>
+                    <td><form:input path="studentName" required="true"/></td>
                 </tr>
                 <tr>
                     <td>Фамилия</td>
-                    <td><form:input path="studentSurname"/></td>
+                    <td><form:input path="studentSurname" required="true"/></td>
                 </tr>
                 <tr>
                     <td>Отчество</td>
-                    <td><form:input path="studentPatronymic"/></td>
+                    <td><form:input path="studentPatronymic" required="true"/></td>
+                </tr>
+                <tr>
+                    <td>Почта</td>
+                    <td><form:input path="studentEmail" type="email" required="true"/></td>
                 </tr>
                 <tr>
                     <td>Дата рождения</td>
-                    <td><form:input type="date" path="studentDateOfBirth"/></td>
+                    <td><form:input type="date" path="studentDateOfBirth" required="true"/></td>
                 </tr>
                 <tr>
                     <td>Группа</td>
                     <td>
-                        <form:select path="studentGroup">
+                        <form:select path="studentGroup" required="true">
                             <c:forEach items="${groups}" var="group">
                                 <form:option value="${group.groupName}"/>
                             </c:forEach>

@@ -42,11 +42,8 @@ public class StudentController {
 
     @RequestMapping("/save")
     public String saveStudent(@ModelAttribute("student") Student student) {
+            studentService.saveStudent(student);
 
-        System.out.println(student);
-
-        studentService.saveStudent(student);
-
-        return "redirect:/students";
+            return "redirect:/students";
     }
 }
