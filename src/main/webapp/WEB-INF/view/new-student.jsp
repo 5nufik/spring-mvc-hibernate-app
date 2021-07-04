@@ -16,6 +16,8 @@
         <br>
 
         <form:form action="save" modelAttribute="student">
+            <form:hidden path="studentID"/>
+
             <table>
                 <tr>
                     <td>Имя</td>
@@ -41,8 +43,9 @@
                     <td>Группа</td>
                     <td>
                         <form:select path="studentGroup" required="true">
+                            <form:option value="" label="--Выберите группу--"/>
                             <c:forEach items="${groups}" var="group">
-                                <form:option value="${group.groupName}"/>
+                                <form:option value="${group.groupName}"  selected="${student.studentGroup.groupName.equals(group.groupName) ? 'selected' : ''}"/>
                             </c:forEach>
                         </form:select>
                     </td>

@@ -18,15 +18,26 @@
                 <th>Имя</th>
                 <th>Отчество</th>
                 <th>Дата рождения</th>
+                <th>Почта</th>
                 <th>Группа</th>
+                <th>Операции</th>
             </tr>
             <c:forEach var="student" items="${allStudents}">
+
+                <c:url var="editButton" value="/students/edit">
+                    <c:param name="studentID" value="${student.studentID}"/>
+                </c:url>
+
                 <tr>
-                    <th>${student.studentSurname}</th>
-                    <th>${student.studentName}</th>
-                    <th>${student.studentPatronymic}</th>
-                    <th>${student.studentDateOfBirth}</th>
-                    <th>${student.studentGroup.groupName}</th>
+                    <td>${student.studentSurname}</td>
+                    <td>${student.studentName}</td>
+                    <td>${student.studentPatronymic}</td>
+                    <td>${student.studentDateOfBirth}</td>
+                    <td>${student.studentEmail}</td>
+                    <td>${student.studentGroup.groupName}</td>
+                    <td>
+                        <input type="button" value="Изменить" onclick="window.location.href = '${editButton}'"/>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
