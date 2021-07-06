@@ -4,11 +4,12 @@ import nikiforov.app.dao.GroupDAO;
 import nikiforov.app.entity.Group;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 @Repository
@@ -38,9 +39,9 @@ public class GroupDAOImpl implements GroupDAO {
         Session session = sessionFactory.getCurrentSession();
 
         try {
-            Query query = session.createQuery("from Group where groupName = :groupName", Group.class);
+            Query<Group> query = session.createQuery("from Group where groupName = :groupName");
             query.setParameter("groupName", groupName);
-            return (Group) query.getSingleResult();
+            return query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
@@ -49,5 +50,18 @@ public class GroupDAOImpl implements GroupDAO {
     @Override
     public Group getGroupById(int groupId) {
         return sessionFactory.getCurrentSession().get(Group.class, groupId);
+    }
+
+    @Override
+    public boolean deleteGroup(int groupId) {
+        Query<Group> query = sessionFactory.getCurrentSession().createQuery("delete from Group where groupID = :groupId");
+        query.setParameter("groupId", groupId);
+
+        try {
+            query.executeUpdate();
+            return true;
+        } catch (PersistenceException e) {
+            return false;
+        }
     }
 }

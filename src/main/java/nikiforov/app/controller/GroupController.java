@@ -31,7 +31,6 @@ public class GroupController {
 
     @RequestMapping("/new")
     public String showNewGroup(Model model) {
-
         model.addAttribute("group", new Group());
 
         return "new-group";
@@ -51,9 +50,19 @@ public class GroupController {
 
     @RequestMapping("/edit")
     public String showEditStudent(@RequestParam("groupID") int groupId, Model model) {
-
         model.addAttribute("group", groupService.getGroupById(groupId));
 
         return "new-group";
+    }
+
+    @RequestMapping("/delete")
+    public String deleteGroup(@RequestParam("groupID") int groupId, Model model) {
+        if (!groupService.deleteGroup(groupId)) {
+            model.addAttribute("allGroups", groupService.getAllGroups());
+            model.addAttribute("message", "<script>alert('Невозможно удалить данную группу, т.к. в ней учатся студенты')</script>");
+            return "all-groups";
+        }
+
+        return "redirect:/groups";
     }
 }

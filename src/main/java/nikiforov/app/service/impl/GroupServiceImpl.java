@@ -38,4 +38,10 @@ public class GroupServiceImpl implements GroupService {
     public Group getGroupById(int groupId) {
         return groupDAO.getGroupById(groupId);
     }
+
+    @Override
+    @Transactional
+    public boolean deleteGroup(int groupId) {
+        return groupDAO.deleteGroup(groupId);
+    }
 }

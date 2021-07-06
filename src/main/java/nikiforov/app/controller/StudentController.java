@@ -33,7 +33,6 @@ public class StudentController {
 
     @RequestMapping("/new")
     public String showNewStudent(Model model) {
-
         model.addAttribute("student", new Student());
 
         model.addAttribute("groups", groupService.getAllGroups());
@@ -42,7 +41,7 @@ public class StudentController {
     }
 
     @RequestMapping("/save")
-    public String saveStudent(@ModelAttribute("student") Student student) {
+    public String showSaveStudent(@ModelAttribute("student") Student student) {
         student.setStudentGroup(groupService.getGroupByName(student.getStudentGroup().getGroupName()));
         studentService.saveStudent(student);
 
@@ -51,7 +50,6 @@ public class StudentController {
 
     @RequestMapping("/edit")
     public String editStudent(@RequestParam("studentID") int studentId, Model model) {
-
         model.addAttribute("student", studentService.getStudentById(studentId));
         model.addAttribute("groups", groupService.getAllGroups());
 

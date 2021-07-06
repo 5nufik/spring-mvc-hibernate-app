@@ -12,4 +12,6 @@ public interface GroupDAO {
     Group getGroupByName(String groupName);
 
     Group getGroupById(int groupId);
+
+    boolean deleteGroup(int groupId);
 }
