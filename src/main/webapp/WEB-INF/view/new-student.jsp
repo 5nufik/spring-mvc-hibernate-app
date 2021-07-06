@@ -42,10 +42,10 @@
                 <tr>
                     <td>Группа</td>
                     <td>
-                        <form:select path="studentGroup" required="true">
+                        <form:select path="studentGroup.groupName" required="true">
                             <form:option value="" label="--Выберите группу--"/>
                             <c:forEach items="${groups}" var="group">
-                                <form:option value="${group.groupName}"  selected="${student.studentGroup.groupName.equals(group.groupName) ? 'selected' : ''}"/>
+                                <form:option value="${group.groupName}" selected="${student.studentGroup.groupID == group.groupID ? 'selected' : ''}"/>
                             </c:forEach>
                         </form:select>
                     </td>

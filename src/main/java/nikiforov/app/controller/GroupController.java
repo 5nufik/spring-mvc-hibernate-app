@@ -38,9 +38,8 @@ public class GroupController {
 
     @RequestMapping("/save")
     public String saveGroup(@ModelAttribute("group") @Valid Group group, BindingResult result) {
-
         if (!result.hasErrors()) {
-            if (groupService.getGroup(group.getGroupName()) == null) {
+            if (groupService.getGroupByName(group.getGroupName()) == null) {
                 groupService.saveGroup(group);
                 return "redirect:/groups";
             }

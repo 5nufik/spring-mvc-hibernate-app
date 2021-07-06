@@ -24,10 +24,8 @@ public class Student {
 
     private Date studentDateOfBirth;
 
-    @ManyToOne(
-        fetch = FetchType.EAGER
-    )
-    @JoinColumn(
+    @ManyToOne
+    @JoinColumn (
         name = "studentGroup"
     )
     private Group studentGroup;

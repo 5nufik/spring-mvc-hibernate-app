@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -32,9 +34,15 @@ public class GroupDAOImpl implements GroupDAO {
     }
 
     @Override
-    public Group getGroup(String name) {
+    public Group getGroupByName(String name) {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.get(Group.class, name);
+        try {
+            Query query = session.createQuery("from Group where groupName = :name", Group.class);
+            query.setParameter("name", name);
+            return (Group) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

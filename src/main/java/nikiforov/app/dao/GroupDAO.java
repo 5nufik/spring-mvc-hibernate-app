@@ -9,5 +9,5 @@ public interface GroupDAO {
 
     void saveGroup(Group group);
 
-    Group getGroup(String name);
+    Group getGroupByName(String name);
 }

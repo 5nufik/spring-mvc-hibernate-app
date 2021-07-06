@@ -43,9 +43,10 @@ public class StudentController {
 
     @RequestMapping("/save")
     public String saveStudent(@ModelAttribute("student") Student student) {
-            studentService.saveStudent(student);
+        student.setStudentGroup(groupService.getGroupByName(student.getStudentGroup().getGroupName()));
+        studentService.saveStudent(student);
 
-            return "redirect:/students";
+        return "redirect:/students";
     }
 
     @RequestMapping("/edit")
