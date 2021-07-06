@@ -50,11 +50,18 @@ public class StudentController {
     }
 
     @RequestMapping("/edit")
-    public String editStudent(@RequestParam("studentID") int id, Model model) {
+    public String editStudent(@RequestParam("studentID") int studentId, Model model) {
 
-        model.addAttribute("student", studentService.getStudent(id));
+        model.addAttribute("student", studentService.getStudentById(studentId));
         model.addAttribute("groups", groupService.getAllGroups());
 
         return "new-student";
+    }
+
+    @RequestMapping("/delete")
+    public String deleteStudent(@RequestParam("studentID") int studentId) {
+        studentService.deleteStudent(studentId);
+
+        return "redirect:/students";
     }
 }

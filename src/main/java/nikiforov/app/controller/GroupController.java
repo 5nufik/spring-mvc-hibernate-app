@@ -50,9 +50,9 @@ public class GroupController {
     }
 
     @RequestMapping("/edit")
-    public String showEditStudent(@RequestParam("groupID") int id, Model model) {
+    public String showEditStudent(@RequestParam("groupID") int groupId, Model model) {
 
-        model.addAttribute("group", groupService.getGroupById(id));
+        model.addAttribute("group", groupService.getGroupById(groupId));
 
         return "new-group";
     }

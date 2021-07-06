@@ -9,7 +9,7 @@ public interface GroupService {
 
     void saveGroup(Group group);
 
-    Group getGroupByName(String name);
+    Group getGroupByName(String groupName);
 
-    Group getGroupById(int id);
+    Group getGroupById(int groupId);
 }

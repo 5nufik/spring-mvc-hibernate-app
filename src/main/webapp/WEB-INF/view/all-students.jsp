@@ -28,6 +28,10 @@
                     <c:param name="studentID" value="${student.studentID}"/>
                 </c:url>
 
+                <c:url var="deleteStudent" value="/students/delete">
+                    <c:param name="studentID" value="${student.studentID}"/>
+                </c:url>
+
                 <tr>
                     <td>${student.studentSurname}</td>
                     <td>${student.studentName}</td>
@@ -37,6 +41,8 @@
                     <td>${student.studentGroup.groupName}</td>
                     <td>
                         <input type="button" value="Изменить" onclick="window.location.href = '${editStudent}'"/>
+
+                        <input type="button" value="Удалить" onclick="window.location.href = '${deleteStudent}'"/>
                     </td>
                 </tr>
             </c:forEach>

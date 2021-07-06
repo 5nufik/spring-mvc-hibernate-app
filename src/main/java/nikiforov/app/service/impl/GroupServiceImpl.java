@@ -29,13 +29,13 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     @Transactional
-    public Group getGroupByName(String name) {
-        return groupDAO.getGroupByName(name);
+    public Group getGroupByName(String groupName) {
+        return groupDAO.getGroupByName(groupName);
     }
 
     @Override
     @Transactional
-    public Group getGroupById(int id) {
-        return groupDAO.getGroupById(id);
+    public Group getGroupById(int groupId) {
+        return groupDAO.getGroupById(groupId);
     }
 }

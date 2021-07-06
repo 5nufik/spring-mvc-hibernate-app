@@ -29,7 +29,13 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public Student getStudent(int id) {
-        return studentDAO.getStudent(id);
+    public Student getStudentById(int studentId) {
+        return studentDAO.getStudentById(studentId);
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudent(int studentId) {
+        studentDAO.deleteStudent(studentId);
     }
 }

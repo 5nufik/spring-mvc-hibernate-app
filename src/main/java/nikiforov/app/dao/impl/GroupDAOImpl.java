@@ -34,12 +34,12 @@ public class GroupDAOImpl implements GroupDAO {
     }
 
     @Override
-    public Group getGroupByName(String name) {
+    public Group getGroupByName(String groupName) {
         Session session = sessionFactory.getCurrentSession();
 
         try {
-            Query query = session.createQuery("from Group where groupName = :name", Group.class);
-            query.setParameter("name", name);
+            Query query = session.createQuery("from Group where groupName = :groupName", Group.class);
+            query.setParameter("groupName", groupName);
             return (Group) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
@@ -47,7 +47,7 @@ public class GroupDAOImpl implements GroupDAO {
     }
 
     @Override
-    public Group getGroupById(int id) {
-        return sessionFactory.getCurrentSession().get(Group.class, id);
+    public Group getGroupById(int groupId) {
+        return sessionFactory.getCurrentSession().get(Group.class, groupId);
     }
 }

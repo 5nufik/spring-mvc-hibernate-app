@@ -9,5 +9,7 @@ public interface StudentDAO {
 
     void saveStudent(Student student);
 
-    Student getStudent(int id);
+    Student getStudentById(int studentId);
+
+    void deleteStudent(int studentId);
 }

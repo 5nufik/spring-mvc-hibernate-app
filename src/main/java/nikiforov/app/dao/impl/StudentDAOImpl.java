@@ -4,6 +4,7 @@ import nikiforov.app.dao.StudentDAO;
 import nikiforov.app.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -32,9 +33,16 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student getStudent(int id) {
+    public Student getStudentById(int studentId) {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.get(Student.class, id);
+        return session.get(Student.class, studentId);
+    }
+
+    @Override
+    public void deleteStudent(int studentId) {
+        Query<Student> query = sessionFactory.getCurrentSession().createQuery("delete from Student where studentID = :studentID");
+        query.setParameter("studentID", studentId);
+        query.executeUpdate();
     }
 }
