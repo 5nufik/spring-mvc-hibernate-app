@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -45,6 +46,14 @@ public class GroupController {
             }
             result.rejectValue("groupName", "error.groupName", "Введённая группа уже существует");
         }
+        return "new-group";
+    }
+
+    @RequestMapping("/edit")
+    public String showEditStudent(@RequestParam("groupID") int id, Model model) {
+
+        model.addAttribute("group", groupService.getGroupById(id));
+
         return "new-group";
     }
 }

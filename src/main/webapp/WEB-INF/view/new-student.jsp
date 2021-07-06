@@ -11,7 +11,7 @@
     <body>
         <jsp:include page="header.jsp"/>
 
-        <h2>Добавление студента</h2>
+        <h2>${student.studentID == 0 ? 'Добавление студента' : 'Изменение студента'}</h2>
 
         <br>
 
@@ -54,7 +54,7 @@
 
             <br>
 
-            <input type="submit" value="Добавить">
+            <input type="submit" value="${student.studentID == 0 ? 'Добавить' : 'Применить'}">
 
         </form:form>
     </body>

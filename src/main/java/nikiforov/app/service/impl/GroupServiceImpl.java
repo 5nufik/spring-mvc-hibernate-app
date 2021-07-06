@@ -32,4 +32,10 @@ public class GroupServiceImpl implements GroupService {
     public Group getGroupByName(String name) {
         return groupDAO.getGroupByName(name);
     }
+
+    @Override
+    @Transactional
+    public Group getGroupById(int id) {
+        return groupDAO.getGroupById(id);
+    }
 }

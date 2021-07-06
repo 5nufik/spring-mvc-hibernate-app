@@ -15,10 +15,17 @@
         <table>
             <tr>
                 <th>Название</th>
+                <th>Операции</th>
             </tr>
             <c:forEach var="group" items="${allGroups}">
+                <c:url var="editGroup" value="/groups/edit">
+                    <c:param name="groupID" value="${group.groupID}"/>
+                </c:url>
                 <tr>
-                    <th>${group.groupName}</th>
+                    <td>${group.groupName}</td>
+                    <td>
+                        <input type="button" value="Изменить" onclick="window.location.href = '${editGroup}'"/>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

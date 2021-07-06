@@ -11,9 +11,10 @@
     <body>
         <jsp:include page="header.jsp"/>
 
-        <h2>Создание группы</h2>
+        <h2>${group.groupID == 0 ? 'Создание группы' : 'Изменение группы'}</h2>
 
         <form:form action="save" modelAttribute="group">
+            <form:hidden path="groupID"/>
             <table>
                 <tr>
                     <td>Название группы</td>
@@ -24,7 +25,7 @@
 
             <br>
 
-            <input type="submit" value="Создать">
+            <input type="submit" value="${group.groupID == 0 ? 'Создать' : 'Применить'}">
         </form:form>
     </body>
 </html>

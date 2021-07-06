@@ -24,7 +24,7 @@
             </tr>
             <c:forEach var="student" items="${allStudents}">
 
-                <c:url var="editButton" value="/students/edit">
+                <c:url var="editStudent" value="/students/edit">
                     <c:param name="studentID" value="${student.studentID}"/>
                 </c:url>
 
@@ -36,7 +36,7 @@
                     <td>${student.studentEmail}</td>
                     <td>${student.studentGroup.groupName}</td>
                     <td>
-                        <input type="button" value="Изменить" onclick="window.location.href = '${editButton}'"/>
+                        <input type="button" value="Изменить" onclick="window.location.href = '${editStudent}'"/>
                     </td>
                 </tr>
             </c:forEach>

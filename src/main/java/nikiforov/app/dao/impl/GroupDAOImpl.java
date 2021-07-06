@@ -30,7 +30,7 @@ public class GroupDAOImpl implements GroupDAO {
     public void saveGroup(Group group) {
         Session session = sessionFactory.getCurrentSession();
 
-        session.save(group);
+        session.saveOrUpdate(group);
     }
 
     @Override
@@ -44,5 +44,10 @@ public class GroupDAOImpl implements GroupDAO {
         } catch (NoResultException e) {
             return null;
         }
+    }
+
+    @Override
+    public Group getGroupById(int id) {
+        return sessionFactory.getCurrentSession().get(Group.class, id);
     }
 }

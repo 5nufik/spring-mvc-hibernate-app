@@ -10,4 +10,6 @@ public interface GroupService {
     void saveGroup(Group group);
 
     Group getGroupByName(String name);
+
+    Group getGroupById(int id);
 }
